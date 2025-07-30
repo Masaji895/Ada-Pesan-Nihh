@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pesan untuk Sayang 💌</title> 
+  <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Kalam', cursive;
+      background: linear-gradient(#1a2a6c, #b21f1f, #fdbb2d);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .envelope {
+      width: 200px;
+      height: 120px;
+      background: pink;
+      position: relative;
+      border-radius: 10px;
+      transform: rotate(-2deg);
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+
+    .envelope::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      background: #ffb6c1;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+
+    .button {
+      background-color: pink;
+      color: purple;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+    }
+
+    .message-box {
+      display: none;
+      max-width: 90%;
+      background: rgba(255, 255, 255, 0.9);
+      color: #000;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: left;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .message-box p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Audio autoplay & loop -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="SZA - Cry Baby (Official Audio).mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <div class="envelope"></div>
+  <button class="button" onclick="bukaPesan()">Buka Surat 💗</button>
+
+  <div class="message-box" id="pesan">
+    <p>Sayangku, cintaku satu-satunya</p>
+
+    <p>Di malam yang dingin ini, ada satu hal yang nggak bisa aku tahan lebih lama. Aku pengen banget ngirimin pesan buat kamu — pacarku yang paling cantik, paling manja, dan paling aku sayang di dunia ini.</p>
+
+    <p>Kalo sayang sudah bangun, bacalah ini baik-baik ya. Ini pesan dari cowomu yang gantengnya nggak ketulungan, yang rela minta bantuan para dewa, termasuk Zeus, cuma buat bikin kamu senyum lagi.</p>
+
+    <p>Aku minta maaf ya sayang. Tadi aku sempat cuek, bukan karena aku nggak peduli, tapi mungkin aku ke-trigger dikit karena kamu ceritanya setengah-setengah. Aku jadi ngerasa aneh sendiri dan malah jadi jutek.</p>
+
+    <p>Maafin bocilmu ini ya, yang kadang masih kekanakan dan sering bikin kamu jengkel. Tapi dari lubuk hati yang paling dalam, aku sayang banget sama kamu.Aku tahu aku nggak sempurna, tapi aku selalu berusaha jadi yang terbaik buat kamu. Maafin aku kalau sikapku kadang bikin kamu kesel, marah, atau capek sendiri.</p>
+
+    <p>Tapi satu hal yang pasti — aku cinta kamu sepenuh hati.</p>
+
+    <p>Meskipun kadang kita ada salah paham, aku nggak akan pernah berhenti buat minta maaf dan memperbaiki semuanya. Karena kamu adalah satu-satunya tujuan akhir dari perjalananku.</p>
+
+    <p>Muwahhhhh 💋</p>
+
+    <p>Love you more than words can say 💗</p>
+
+    <p style="font-weight:bold; font-size: 22px;">I LOVE YOU SAYANG 💖</p>
+  </div>
+
+  <script>
+    function bukaPesan() {
+      document.getElementById('pesan').style.display = 'block';
+    }
+
+    // Untuk memastikan autoplay bisa jalan di beberapa browser
+    window.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('bgMusic');
+      audio.play().catch(() => {
+        document.body.addEventListener('click', () => {
+          audio.play();
+        }, { once: true });
+      });
+    });
+  </script>
+
+</body>
+</html>
